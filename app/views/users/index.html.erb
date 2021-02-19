@@ -13,7 +13,9 @@
   <h3><span>introduction</span><%= @user.introduction %></h3>
 </div>
 
-<%= link_to "プロフィール編集", edit_user_path(@user) %>
+<%= link_to edit_user_path(@user), method: :get do %>
+<i class="fas fa-cog"></i>
+<% end %>
 
 <div>
 

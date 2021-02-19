@@ -10,33 +10,49 @@
   </head>
 
   <body>
-        <% if user_signed_in? %>
-      <li>
-      <%= link_to 'Home', user_path(current_user.id) %>
-      </li>
-      <li>
-      <%= link_to 'Users', users_path %>
-      </li>
-      <li>
-        <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", home_about_path %>
-      </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to " login", new_user_session_path %>
-      </li>
-    <% end %>
+     <% if user_signed_in? %>
+   　　　　　　　　　 <li class="">
+    　　　　　　　<%= link_to user_path(current_user), class:"btn btn-link" do %>
+    　　　　　　<i class="fas fa-home"> Home</i>
+   　　　　　　　 <% end %>
+    　　　　　　　</li>
+   　　　　　　　　 <li class="">
+    　　　　　　<%= link_to users_path, class:"btn btn-link" do %>
+                <i class="fas fa-users"> Users</i>
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to books_path, class:"btn btn-link" do %>
+                <i class="fas fa-book-open"> Books</i>
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-link" do %>
+                <i class="fas fa-sign-out-alt"> Logout</i>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="">
+                <%= link_to root_path, class:"btn btn-link" do %>
+                <i class="fas fa-home"> Home</i>
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to home_about_path, class:"btn btn-link" do %>
+                <i class="fas fa-link"> About</i>
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to new_user_registration_path, class:"btn btn-link" do %>
+                <i class="fas fa-user-plus"> sign up</i>
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to new_user_session_path, class:"btn btn-link" do %>
+                <i class="fas fa-sign-in-alt"> login</i>
+                <% end %>
+              </li>
+            <% end %>
     <%= yield %>
   </body>
 </html>

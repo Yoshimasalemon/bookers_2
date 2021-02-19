@@ -23,7 +23,10 @@
   <h3 class="profile-name"><span>name</span> <%= @user.name %></h3>
   <h3><span>introduction</span><%= @user.introduction %></h3>
 </div>
-<%= link_to "プロフィール編集", edit_user_path(@user) %>
+
+<%= link_to edit_user_path(@user), method: :get do %>
+<i class="fas fa-cog"></i>
+<% end %>
 
 <h1>New Book</h1>
 <%= form_with model: @book do |f|  %>
