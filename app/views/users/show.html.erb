@@ -1,0 +1,51 @@
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+<h1>User info</h1>
+<div class="profile-container">
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", size:'100x100'%>
+  <h3 class="profile-name"><span>name</span> <%= @user.name %></h3>
+  <h3><span>introduction</span><%= @user.introduction %></h3>
+</div>
+
+
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+
+
+<div>
+<h1>New Book</h1>
+<%= form_with model: @booknew do |f|  %>
+
+  <%= f.label :Title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :Opinion %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>
+</div>
+
+
+
+     <table>
+        <h2>Books</h2>
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
+        <tbody>
+          <% @books.each do |t| %>
+            <tr>
+              <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg",  size:'100x100' %></td>
+              <td><%= link_to t.title, book_path(t.id) %></td>
+              <td><%= t.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
