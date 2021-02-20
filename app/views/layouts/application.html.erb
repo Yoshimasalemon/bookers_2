@@ -4,55 +4,78 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-     <% if user_signed_in? %>
-   　　　　　　　　　 <li class="">
-    　　　　　　　<%= link_to user_path(current_user), class:"btn btn-link" do %>
-    　　　　　　<i class="fas fa-home"> Home</i>
-   　　　　　　　 <% end %>
-    　　　　　　　</li>
-   　　　　　　　　 <li class="">
-    　　　　　　<%= link_to users_path, class:"btn btn-link" do %>
-                <i class="fas fa-users"> Users</i>
-                <% end %>
-              </li>
-              <li class="">
-                <%= link_to books_path, class:"btn btn-link" do %>
-                <i class="fas fa-book-open"> Books</i>
-                <% end %>
-              </li>
-              <li class="">
-                <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-link" do %>
-                <i class="fas fa-sign-out-alt"> Logout</i>
-                <% end %>
-              </li>
-            <% else %>
-              <li class="">
-                <%= link_to root_path, class:"btn btn-link" do %>
-                <i class="fas fa-home"> Home</i>
-                <% end %>
-              </li>
-              <li class="">
-                <%= link_to home_about_path, class:"btn btn-link" do %>
-                <i class="fas fa-link"> About</i>
-                <% end %>
-              </li>
-              <li class="">
-                <%= link_to new_user_registration_path, class:"btn btn-link" do %>
-                <i class="fas fa-user-plus"> sign up</i>
-                <% end %>
-              </li>
-              <li class="">
-                <%= link_to new_user_session_path, class:"btn btn-link" do %>
-                <i class="fas fa-sign-in-alt"> login</i>
-                <% end %>
-              </li>
-            <% end %>
+  <body class="header">
+
+    <div class="p-2 bd-highlight">Bookers</div>
+
+
+    <div class="d-flex flex-row-reverse bd-highlight">
+
+
+
+
+
+      <% if user_signed_in? %>
+  <li class="p-2 bd-highlight">
+  <%= link_to user_path(current_user), class:"btn btn-link" do %>
+<i class="fas fa-home">Home</i>
+<% end %>
+</li>
+
+<li class="p-2 bd-highlight">
+  <%= link_to users_path, class:"btn btn-link" do %>
+ <i class="fas fa-users">Users</i>
+  <% end %>
+ </li>
+
+<li class="p-2 bd-highlight">
+<%= link_to books_path, class:"btn btn-link" do %>
+<i class="fas fa-book-open">Books</i>
+<% end %>
+</li>
+
+ <li class="p-2 bd-highlight">
+ <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-link" do %>
+  <i class="fas fa-sign-out-alt">Logout</i>
+ <% end %>
+</li>
+
+  <% else %>
+
+ <li class="p-2 bd-highlight">
+<%= link_to root_path, class:"btn btn-link" do %>
+<i class="fas fa-home">Home</i>
+<% end %>
+ </li>
+
+ <li class="p-2 bd-highlight">
+  <%= link_to home_about_path, class:"btn btn-link" do %>
+<i class="fas fa-link">About</i>
+  <% end %>
+ </li>
+
+ <li class="p-2 bd-highlight">
+ <%= link_to new_user_registration_path, class:"btn btn-link" do %>
+ <i class="fas fa-user-plus">sign up</i>
+ <% end %>
+ </li>
+
+<li class="p-2 bd-highlight">
+  <%= link_to new_user_session_path, class:"btn btn-link" do %>
+    <i class="fas fa-sign-in-alt">login</i>
+   <% end %>
+      </li>
+
+     <% end %>
+</div>
     <%= yield %>
+     <footer>
+          <p> CopyRight Infratop.inc</p>
+        </footer>
   </body>
 </html>

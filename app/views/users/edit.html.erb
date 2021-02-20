@@ -1,5 +1,6 @@
 <% if @user.errors.any? %>
     <div class = "alert alert-warning">
+         <h3><%= @user.errors.count %> errors prohibited this obj from being saved</h3>
         <ul>
             <% @user.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -17,5 +18,5 @@
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
   <label for="inputIntroduction">introduction</label>
   <%= f.text_field :introduction, autofocus: true %>
-  <%= f.submit "変更を保存" %>
+  <%= f.submit " Update User" %>
 <% end %>
