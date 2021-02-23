@@ -41,31 +41,34 @@
     </tbody>
 </table>
 
-<%= link_to edit_user_path(@user), method: :get do %>
-<i class="fas fa-user-cog"></i>
+
+ <%= link_to edit_user_path(@user), method: :get do %>
+<button type="button" class="btn btn-outline-secondary btn-block"><i class="fas fa-user-cog"></i></button>
 <% end %>
 
 <div>
 
-<h1>New book</h1>
+<h2>New book</h2>
 <%= form_with model: @book, local: true  do |f|  %>
-
-  <%= f.label :Title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :Opinion %>
-  <%= f.text_field :body %>
-
-  <%= f.submit "Create Book" %>
+<div class="form-group">
+   <p>Title</p>
+  <%= f.text_field :title, class:"form-control" %>
+</div>
+<div class="form-group">
+ <p>Opinion</p>
+  <%= f.text_area :body, class:"form-control" %>
+  </div>
+<div>
+  <%= f.submit "Create Book", class:"btn btn-success" %>
+  </div>
 <% end %>
-
 </div>
 </div>
 
 
 <div class="col-md-8 offset-md-1">
 
-      <h1>Users</h1>
+      <h2>Users</h2>
 
     <table class="table">
   <thead>
